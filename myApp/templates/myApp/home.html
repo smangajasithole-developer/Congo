@@ -1,0 +1,1004 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <title>Congo | International / Local DJ & Producer — Official Website</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'myApp/css/home.css' %}">
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="logo">
+    <a href="#home">CONGO</a>
+</div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="#home" class="nav-link">HOME</a></li>
+            <li><a href="#about" class="nav-link">ABOUT</a></li>
+            <li><a href="#mixes" class="nav-link">MIXES</a></li>
+            <li><a href="#events" class="nav-link">EVENTS</a></li>
+            <li><a href="#gallery" class="nav-link">GALLERY</a></li>
+            <li><a href="#testimonials" class="nav-link">TESTIMONIALS</a></li>
+            <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+    </nav>
+
+<div class="header-actions">
+
+    <button
+        type="button"
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="Toggle Day and Night Mode"
+    >
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <a href="#contact" class="book-btn">
+        Book Now
+    </a>
+
+    <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- ========================================= -->
+<!-- HERO SECTION                              -->
+<!-- ========================================= -->
+<section class="hero" id="home">
+
+    <img
+        src="{% static 'myApp/pictures/picture2.jpg' %}"
+        alt="DJ Congo Hero Background"
+        class="hero-background"
+    >
+
+    <div class="hero-overlay">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+
+                <span class="live-dot"></span>
+
+                NOW BOOKING 2026
+
+            </div>
+
+            <h2>INTERNATIONAL / LOCAL DJ & PRODUCER</h2>
+
+            <h1>CONGO</h1>
+
+            <p>
+                Igniting dance floors across the globe with electrifying sets
+                that blur the lines between genres.
+            </p>
+
+<div class="hero-buttons">
+
+    <a href="#mixes" class="btn primary">
+
+        <i class="fas fa-headphones"></i>
+
+        Listen to Mixes
+
+    </a>
+
+
+<a href="#" class="btn secondary book-btn">
+
+    <i class="fas fa-calendar-check"></i>
+
+    Book for Events
+
+</a>
+
+</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<section class="about" id="about">
+
+    <div class="about-container">
+
+        <div class="about-image">
+
+            <div class="image-container">
+
+                <img
+                    src="{% static 'myApp/pictures/picture3.jpg' %}"
+                    alt="Congo Portrait"
+                    class="about-photo"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+        <div class="about-text">
+
+            <h3>ABOUT</h3>
+
+            <h2>The Story Behind The Sound</h2>
+
+            <p>
+                Born in Skumane and raised in Kamhlushwa, Congo discovered a passion
+                for Deep House, Commercial, and Hip-Hop music at the age of 17.
+                What started as bedroom mixing sessions quickly evolved into a
+                full-blown career that has taken him to stages across four provinces.
+            </p>
+
+            <p>
+                Known for seamlessly blending Hip-Hop and Amapiano into unforgettable
+                sonic journeys, Congo has become a sought-after name at Nabalabantu
+                and VBF in Secunda. From intimate underground venues to massive
+                festival stages, every set is crafted to create a unique connection
+                with the audience.
+            </p>
+
+            <p>
+                Beyond performing, Congo is also a dedicated music producer with
+                releases on top labels. His tracks have been supported by industry
+                heavyweights and have accumulated millions of streams worldwide.
+            </p>
+
+            <div class="about-stats">
+
+                <div class="stat">
+                    <h3>50+</h3>
+                    <p>Gigs Played</p>
+                </div>
+
+                <div class="stat">
+                    <h3>11+</h3>
+                    <p>Years Experience</p>
+                </div>
+
+                <div class="stat">
+                    <h3>6</h3>
+                    <p>Original Mixes</p>
+                </div>
+
+                <div class="stat">
+                    <h3>2</h3>
+                    <p>Awards Won</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+<!-- MIXES SECTION -->
+<section class="mixes" id="mixes">
+
+    <div class="section-header">
+        <h3>FEATURED MIXES</h3>
+        <h2>Latest Releases</h2>
+    </div>
+
+    <div class="mixes-grid" id="mixesGrid">
+        <!-- Mix cards are rendered by JavaScript -->
+    </div>
+
+</section>
+
+
+
+
+
+
+<!-- EVENTS SECTION -->
+<section class="events" id="events">
+
+    <div class="section-header">
+        <h3>ON TOUR</h3>
+    </div>
+
+    <div class="past-header">
+        <h3>Past Performances</h3>
+    </div>
+
+    <div class="past-list" id="pastList">
+        <!-- Past events are rendered by JavaScript -->
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- GALLERY SECTION -->
+<section class="gallery" id="gallery">
+
+    <div class="section-header">
+        <h3>BEHIND THE DECKS</h3>
+        <h2>Gallery</h2>
+    </div>
+
+    <!-- PHOTO SECTION -->
+    <div class="gallery-subsection">
+
+        <div class="subsection-header">
+            <i class="fas fa-camera"></i>
+            <h3>PHOTOS</h3>
+            <div class="header-line"></div>
+        </div>
+
+        <div class="gallery-grid" id="photoGrid">
+
+            <!-- Photo 1 -->
+            <div class="gallery-item photo-item">
+
+                <div class="photo-container">
+
+                    <img
+                        src="{% static 'myApp/pictures/picture2.jpg' %}"
+                        alt="DJ Congo Live Performance"
+                        class="photo-image"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>View Photo</span>
+                    </div>
+
+                </div>
+
+                <div class="photo-info">
+                    <h4 class="photo-name">Electric Vibes Live Set</h4>
+                    <p class="photo-description">
+                        DJ Congo igniting the crowd at Electric Festival 2025
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Add more photos here in the future -->
+
+        </div>
+
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <div class="gallery-subsection">
+
+        <div class="subsection-header">
+            <i class="fas fa-video"></i>
+            <h3>VIDEOS</h3>
+            <div class="header-line"></div>
+        </div>
+
+        <div class="gallery-grid" id="videoGrid">
+
+            <!-- Video 1 -->
+            <div
+                class="gallery-item video-item"
+                data-video-url="{% static 'myApp/videos/video1.mp4' %}"
+                data-video-title="Live @ Electric Festival 2025"
+                data-video-description="Full 60min Set - DJ Congo Live Performance"
+            >
+
+                <div class="video-thumbnail">
+
+                    <video class="video-preview" preload="metadata">
+                        <source src="{% static 'myApp/videos/video1.mp4' %}" type="video/mp4">
+                    </video>
+
+                    <div class="play-button-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+
+                </div>
+
+                <div class="video-info">
+                    <h4>Live @ Electric Festival 2025</h4>
+                    <p>Full 60min Set</p>
+                </div>
+
+            </div>
+
+            <!-- Video 2 -->
+            <div
+                class="gallery-item video-item"
+                data-video-url="{% static 'myApp/videos/video2.mp4' %}"
+                data-video-title="Studio Session 2025"
+                data-video-description="Behind the scenes making new music"
+            >
+
+                <div class="video-thumbnail">
+
+                    <video class="video-preview" preload="metadata">
+                        <source src="{% static 'myApp/videos/video2.mp4' %}" type="video/mp4">
+                    </video>
+
+                    <div class="play-button-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+
+                </div>
+
+                <div class="video-info">
+                    <h4>Studio Session 2025</h4>
+                    <p>Behind the scenes</p>
+                </div>
+
+            </div>
+
+            <!-- Video 3 -->
+            <div
+                class="gallery-item video-item"
+                data-video-url="{% static 'myApp/videos/video3.mp4' %}"
+                data-video-title="Summer Tour Highlights"
+                data-video-description="Best moments from the 2025 Summer Tour"
+            >
+
+                <div class="video-thumbnail">
+
+                    <video class="video-preview" preload="metadata">
+                        <source src="{% static 'myApp/videos/video3.mp4' %}" type="video/mp4">
+                    </video>
+
+                    <div class="play-button-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+
+                </div>
+
+                <div class="video-info">
+                    <h4>Summer Tour Highlights</h4>
+                    <p>Best moments 2025</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- PHOTO LIGHTBOX MODAL                      -->
+<!-- ========================================= -->
+<div id="lightboxModal" class="lightbox">
+
+    <span class="close-lightbox">
+        &times;
+    </span>
+
+    <div class="lightbox-inner">
+
+        <img
+            id="lightboxImage"
+            class="lightbox-content"
+            alt="Gallery Photo"
+        >
+
+        <div class="lightbox-caption">
+
+            <h3
+                id="lightboxName"
+                class="lightbox-name">
+            </h3>
+
+            <p
+                id="lightboxDescription"
+                class="lightbox-description">
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================= -->
+<!-- VIDEO PLAYBACK MODAL                      -->
+<!-- ========================================= -->
+<div id="videoModal" class="video-modal">
+
+    <span class="close-video-modal">
+        &times;
+    </span>
+
+    <div class="video-modal-content">
+
+        <video
+            id="fullVideoPlayer"
+            controls
+            playsinline
+        >
+
+            <source
+                id="videoSource"
+                src=""
+                type="video/mp4"
+            >
+
+            Your browser does not support the video tag.
+
+        </video>
+
+        <div class="video-modal-info">
+
+            <h4 id="videoModalTitle"></h4>
+
+            <p id="videoModalDescription"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================= -->
+<!-- TESTIMONIALS                              -->
+<!-- ========================================= -->
+<section class="testimonials" id="testimonials">
+
+    <div class="section-header">
+
+        <h3>WHAT PEOPLE SAY</h3>
+
+        <h2>Client Testimonials</h2>
+
+    </div>
+
+
+    <!-- REVIEW BUTTON -->
+    <div class="review-btn-wrapper">
+
+        <button
+            type="button"
+            class="review-btn"
+            id="openReviewModal"
+        >
+
+            <i class="fas fa-star"></i>
+
+            <span>Add A Review</span>
+
+        </button>
+
+    </div>
+
+
+    <div class="testimonials-grid">
+
+        {% for testimonial in testimonials %}
+
+        <article class="testimonial-card">
+
+            <div class="stars">
+
+                {% for i in "12345" %}
+
+                    {% if forloop.counter <= testimonial.rating %}
+                        ★
+                    {% else %}
+                        ☆
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+
+            <p class="quote">
+
+                “{{ testimonial.description }}”
+
+            </p>
+
+
+            <p class="author">
+
+                {{ testimonial.name }}
+
+                {% if testimonial.place_name %}
+
+                <br>
+
+                <span>{{ testimonial.place_name }}</span>
+
+                {% endif %}
+
+            </p>
+
+        </article>
+
+        {% empty %}
+
+        <p class="no-testimonials">
+
+            No testimonials yet.
+
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =========================================
+     REVIEW MODAL
+========================================= -->
+
+<div
+    class="review-modal"
+    id="reviewModal"
+>
+
+    <div class="review-modal-content">
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button
+            type="button"
+            class="close-review-modal"
+            id="closeReviewModal"
+            aria-label="Close Review Form"
+        >
+            &times;
+        </button>
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="review-modal-header">
+
+            <h2>Leave A Review</h2>
+
+            <p>
+                Share your experience working with Congo.
+            </p>
+
+        </div>
+
+
+<!-- =========================================
+     REVIEW MESSAGES
+========================================= -->
+
+<!-- =========================================
+     REVIEW MESSAGES
+========================================= -->
+
+{% if messages %}
+
+    <div class="review-messages">
+
+        {% for message in messages %}
+
+            {% if message.tags == 'error' %}
+
+                <div
+                    class="review-message review-error"
+                    role="alert"
+                >
+
+                    <span class="review-message-icon">
+                        ⚠️
+                    </span>
+
+                    <span class="review-message-text">
+                        {{ message }}
+                    </span>
+
+                </div>
+
+
+            {% elif message.tags == 'success' %}
+
+                <div
+                    class="review-message review-success"
+                    role="status"
+                >
+
+                    <span class="review-message-icon">
+                        ✅
+                    </span>
+
+                    <span class="review-message-text">
+                        {{ message }}
+                    </span>
+
+                </div>
+
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+{% endif %}
+
+
+        <!-- REVIEW FORM -->
+
+        <form
+            method="POST"
+            class="review-form"
+        >
+
+            {% csrf_token %}
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+<input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    value="{{ review_name|default:'' }}"
+    required
+>
+
+            </div>
+
+
+<!-- =========================================
+     POSITION / PLACE / COMPANY
+========================================= -->
+
+<div class="form-group">
+
+    <input
+        type="text"
+        name="place_name"
+        placeholder="Position / Place / Company"
+        value="{{ review_place_name|default:'' }}"
+    >
+
+    <small class="form-help">
+        Example: Club Manager, Cold Room
+    </small>
+
+</div>
+
+
+            <!-- REVIEW -->
+
+            <div class="form-group">
+
+<textarea
+    name="description"
+    placeholder="Write your review..."
+    rows="5"
+    required
+>{{ review_description|default:'' }}</textarea>
+
+            </div>
+
+
+            <!-- RATING -->
+
+<div class="form-group">
+
+    <select
+        name="rating"
+        required
+    >
+
+        <option value="">
+            Select Rating
+        </option>
+
+        <option
+            value="5"
+            {% if review_rating == "5" %}selected{% endif %}
+        >
+            ★★★★★ - 5 Stars
+        </option>
+
+        <option
+            value="4"
+            {% if review_rating == "4" %}selected{% endif %}
+        >
+            ★★★★☆ - 4 Stars
+        </option>
+
+        <option
+            value="3"
+            {% if review_rating == "3" %}selected{% endif %}
+        >
+            ★★★☆☆ - 3 Stars
+        </option>
+
+        <option
+            value="2"
+            {% if review_rating == "2" %}selected{% endif %}
+        >
+            ★★☆☆☆ - 2 Stars
+        </option>
+
+        <option
+            value="1"
+            {% if review_rating == "1" %}selected{% endif %}
+        >
+            ★☆☆☆☆ - 1 Star
+        </option>
+
+    </select>
+
+</div>
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="submit-review-btn"
+            >
+                Submit Review
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- ========================================= -->
+<!-- CONTACT                                   -->
+<!-- ========================================= -->
+<section class="contact" id="contact">
+
+    <div class="contact-header">
+
+        <h3>GET IN TOUCH</h3>
+
+        <h2>Book Congo for Your Event</h2>
+
+        <p>
+            Available for club nights, festivals, private events, and special occasions.
+        </p>
+
+    </div>
+
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+
+            <p>
+
+                <i class="fas fa-envelope"></i>
+
+                <strong>Email:</strong>
+
+                <a href="mailto:bookings@congo.com">
+                    bookings@congo.com
+                </a>
+
+            </p>
+
+
+            <p>
+
+                <i class="fas fa-phone-alt"></i>
+
+                <strong>Management:</strong>
+
+                <a href="tel:+15551234567">
+                    +1 (555) 123-4567
+                </a>
+
+            </p>
+
+
+            <p>
+
+                <i class="fas fa-map-marker-alt"></i>
+
+                <strong>Based In:</strong>
+
+                Mpumalanga, South Africa
+
+            </p>
+
+
+            <div class="social-links">
+
+                <h4>FOLLOW CONGO</h4>
+
+                <ul>
+
+                    <li>
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-instagram"></i>
+                            Instagram
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-youtube"></i>
+                            YouTube
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-soundcloud"></i>
+                            SoundCloud
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-spotify"></i>
+                            Spotify
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- FOOTER                                    -->
+<!-- ========================================= -->
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+        <div class="footer-logo">
+
+            <span class="pulse">
+                CONGO
+            </span>
+
+        </div>
+
+
+        <nav class="footer-nav">
+
+            <ul>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#mixes">Mixes</a>
+                </li>
+
+                <li>
+                    <a href="#events">Events</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="footer-copy">
+
+            © 2026 Congo. Made with
+            <span class="heart">♥</span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+
+<!-- =========================================
+     FLOATING WHATSAPP BUTTON
+========================================= -->
+
+<a
+    href="https://wa.me/27606537993?text=Hi%20Congo%2C%20I%20found%20your%20website%20and%20would%20like%20to%20make%20an%20enquiry"
+    class="floating-whatsapp"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with Congo on WhatsApp"
+>
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+
+
+<!-- ========================================= -->
+<!-- CUSTOM JAVASCRIPT                         -->
+<!-- ========================================= -->
+<script src="{% static 'myApp/js/home.js' %}"></script>
+
+</body>
+</html>
