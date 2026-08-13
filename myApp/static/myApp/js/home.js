@@ -17,9 +17,6 @@ const pastEventsData = [
     { date: "31 December 2025", name: "New Year Celebration", venue: "Kamhlushwa, Mpumalanga" }
 ];
 
-
-
-
 // Helper: Render Mixes
 function renderMixes() {
     const container = document.getElementById('mixesGrid');
@@ -34,7 +31,6 @@ function renderMixes() {
     `).join('');
 }
 
-
 // Render Past Events
 function renderPastEvents() {
     const container = document.getElementById('pastList');
@@ -47,49 +43,35 @@ function renderPastEvents() {
     `).join('');
 }
 
-
-
-
-// Mobile menu toggle
+// =========================================
+// MOBILE MENU
+// =========================================
 function initMobileMenu() {
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
-    if (mobileBtn && navMenu) {
-        mobileBtn.addEventListener('click', () => {
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.display = 'none';
-            } else {
-                navMenu.style.display = 'flex';
-                navMenu.style.flexDirection = 'column';
-                navMenu.style.position = 'absolute';
-                navMenu.style.top = '70px';
-                navMenu.style.left = '0';
-                navMenu.style.right = '0';
-                navMenu.style.backgroundColor = '#0a0a0f';
-                navMenu.style.padding = '1rem';
-                navMenu.style.borderBottom = '1px solid #c0a56b';
-            }
+
+    if (!mobileBtn || !navMenu) return;
+
+    mobileBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('mobile-open');
+        mobileBtn.classList.toggle('menu-open');
+    });
+
+    // Close menu when a navigation link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('mobile-open');
+            mobileBtn.classList.remove('menu-open');
         });
-        
-        // Reset on window resize
-window.addEventListener('resize', () => {
+    });
 
-    if (window.innerWidth > 900) {
-
-        navMenu.style.display = '';
-        navMenu.style.position = '';
-        navMenu.style.flexDirection = '';
-        navMenu.style.top = '';
-        navMenu.style.left = '';
-        navMenu.style.right = '';
-        navMenu.style.backgroundColor = '';
-        navMenu.style.padding = '';
-        navMenu.style.borderBottom = '';
-
-    }
-
-});
-    }
+    // Close menu when screen becomes desktop size
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            navMenu.classList.remove('mobile-open');
+            mobileBtn.classList.remove('menu-open');
+        }
+    });
 }
 
 // Smooth scrolling + active nav highlight
@@ -131,51 +113,26 @@ function initSmoothScroll() {
 
 // Sticky header effect
 function initStickyHeader() {
-
     const header = document.querySelector('.site-header');
-
     if (!header) return;
-
     window.addEventListener('scroll', () => {
-
         if (window.scrollY > 50) {
-
             header.style.padding = '0.8rem 5%';
-
         } else {
-
             header.style.padding = '1.4rem 5%';
-
         }
-
     });
-
 }
 
 // =========================================
 // BOOKING VIA WHATSAPP
 // =========================================
-
 function initBooking() {
-
     const bookBtns = document.querySelectorAll('.book-btn');
-
     if (!bookBtns.length) return;
 
-
-    // =========================================
-    // TEMPORARY TESTING WHATSAPP NUMBER
-    // =========================================
-
-    const whatsappNumber = '27606537993';
-
-
-    // =========================================
-    // BOOKING MESSAGE
-    // =========================================
-
-    const bookingMessage =
-        `Hi Congo, I would like to enquire about booking you for an event.
+    const whatsappNumber = '27794245611';
+    const bookingMessage = `Hi Congo, I would like to enquire about booking you for an event.
 
 Name:
 Event:
@@ -183,36 +140,18 @@ Date:
 Venue/Location:
 Additional details:`;
 
-
-    // =========================================
-    // OPEN WHATSAPP
-    // =========================================
-
     bookBtns.forEach(bookBtn => {
-
         bookBtn.addEventListener('click', (e) => {
-
             e.preventDefault();
-
-
-            const whatsappURL =
-                `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(bookingMessage)}`;
-
-
-            window.open(
-                whatsappURL,
-                '_blank',
-                'noopener,noreferrer'
-            );
-
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(bookingMessage)}`;
+            window.open(whatsappURL, '_blank', 'noopener,noreferrer');
         });
-
     });
-
 }
 
-
-// GALLERY FUNCTIONALITY - Works for any number of photos and videos
+// =========================================
+// GALLERY FUNCTIONALITY
+// =========================================
 
 // Lightbox for Photos
 function initLightbox() {
@@ -221,10 +160,9 @@ function initLightbox() {
     const lightboxName = document.getElementById('lightboxName');
     const lightboxDescription = document.getElementById('lightboxDescription');
     const closeBtn = document.querySelector('.close-lightbox');
-    
-    // Get all photos (works for any number of photos)
+
     const photoItems = document.querySelectorAll('.photo-item');
-    
+
     photoItems.forEach(item => {
         const container = item.querySelector('.photo-container');
         if (container) {
@@ -232,7 +170,7 @@ function initLightbox() {
                 const img = item.querySelector('.photo-image');
                 const name = item.querySelector('.photo-name')?.textContent || 'Photo';
                 const description = item.querySelector('.photo-description')?.textContent || '';
-                
+
                 if (img) {
                     lightboxImg.src = img.src;
                     lightboxName.textContent = name;
@@ -242,20 +180,19 @@ function initLightbox() {
             });
         }
     });
-    
-    // Close lightbox
+
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             lightbox.style.display = 'none';
         });
     }
-    
+
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             lightbox.style.display = 'none';
         }
     });
-    
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox.style.display === 'flex') {
             lightbox.style.display = 'none';
@@ -263,7 +200,7 @@ function initLightbox() {
     });
 }
 
-// Video Modal - Works for any number of videos
+// Video Modal
 function initVideoModal() {
     const videoModal = document.getElementById('videoModal');
     const fullVideoPlayer = document.getElementById('fullVideoPlayer');
@@ -271,10 +208,9 @@ function initVideoModal() {
     const videoModalTitle = document.getElementById('videoModalTitle');
     const videoModalDescription = document.getElementById('videoModalDescription');
     const closeVideoModal = document.querySelector('.close-video-modal');
-    
-    // Get all videos (works for any number of videos)
+
     const videoItems = document.querySelectorAll('.video-item');
-    
+
     function openVideoModal(url, title, description) {
         if (url) {
             videoSource.src = url;
@@ -285,7 +221,7 @@ function initVideoModal() {
             fullVideoPlayer.play().catch(e => console.log('Auto-play prevented'));
         }
     }
-    
+
     function closeVideoModalFunc() {
         fullVideoPlayer.pause();
         fullVideoPlayer.currentTime = 0;
@@ -293,31 +229,27 @@ function initVideoModal() {
         videoSource.src = '';
         fullVideoPlayer.load();
     }
-    
-    // Add click events to all videos
+
     videoItems.forEach(item => {
         const videoUrl = item.dataset.videoUrl;
         const videoTitle = item.dataset.videoTitle || item.querySelector('.video-info h4')?.textContent || 'Video';
         const videoDescription = item.dataset.videoDescription || item.querySelector('.video-info p')?.textContent || '';
-        
-        const clickHandler = () => {
+
+        item.addEventListener('click', () => {
             openVideoModal(videoUrl, videoTitle, videoDescription);
-        };
-        
-        item.addEventListener('click', clickHandler);
+        });
     });
-    
-    // Close modal events
+
     if (closeVideoModal) {
         closeVideoModal.addEventListener('click', closeVideoModalFunc);
     }
-    
+
     videoModal.addEventListener('click', (e) => {
         if (e.target === videoModal) {
             closeVideoModalFunc();
         }
     });
-    
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && videoModal.style.display === 'flex') {
             closeVideoModalFunc();
@@ -325,310 +257,142 @@ function initVideoModal() {
     });
 }
 
-
-
-
-
 // =========================================
 // REVIEW MODAL
 // =========================================
-
 function initReviewModal() {
+    const reviewModal = document.getElementById('reviewModal');
+    const openBtn = document.getElementById('openReviewModal');
+    const closeBtn = document.getElementById('closeReviewModal');
 
-    const reviewModal =
-        document.getElementById('reviewModal');
-
-    const openBtn =
-        document.getElementById('openReviewModal');
-
-    const closeBtn =
-        document.getElementById('closeReviewModal');
-
-
-    if (
-        !reviewModal ||
-        !openBtn ||
-        !closeBtn
-    ) {
+    if (!reviewModal || !openBtn || !closeBtn) {
         return;
     }
 
-
-    // =========================================
-    // GET REVIEW FORM
-    // =========================================
-
-    const reviewForm =
-        reviewModal.querySelector('.review-form');
-
-
-    // =========================================
-    // CLEAR FORM
-    // =========================================
+    const reviewForm = reviewModal.querySelector('.review-form');
 
     function clearReviewForm() {
-
         if (!reviewForm) return;
-
-
-        const nameInput =
-            reviewForm.querySelector(
-                'input[name="name"]'
-            );
-
-        if (nameInput) {
-            nameInput.value = '';
-        }
-
-
-        const placeInput =
-            reviewForm.querySelector(
-                'input[name="place_name"]'
-            );
-
-        if (placeInput) {
-            placeInput.value = '';
-        }
-
-
-        const descriptionInput =
-            reviewForm.querySelector(
-                'textarea[name="description"]'
-            );
-
-        if (descriptionInput) {
-            descriptionInput.value = '';
-        }
-
-
-        const ratingInput =
-            reviewForm.querySelector(
-                'select[name="rating"]'
-            );
-
+        const nameInput = reviewForm.querySelector('input[name="name"]');
+        if (nameInput) nameInput.value = '';
+        const placeInput = reviewForm.querySelector('input[name="place_name"]');
+        if (placeInput) placeInput.value = '';
+        const descriptionInput = reviewForm.querySelector('textarea[name="description"]');
+        if (descriptionInput) descriptionInput.value = '';
+        const ratingInput = reviewForm.querySelector('select[name="rating"]');
         if (ratingInput) {
             ratingInput.selectedIndex = 0;
             ratingInput.value = '';
         }
-
     }
 
-
-    // =========================================
-    // REMOVE REVIEW MESSAGE
-    // =========================================
-
     function clearReviewMessage() {
-
-        const reviewMessages =
-            reviewModal.querySelector(
-                '.review-messages'
-            );
-
+        const reviewMessages = reviewModal.querySelector('.review-messages');
         if (reviewMessages) {
             reviewMessages.remove();
         }
-
     }
-
-
-    // =========================================
-    // CLOSE MODAL
-    // =========================================
 
     function closeReviewModal() {
-
         reviewModal.style.display = 'none';
-
         document.body.style.overflow = 'auto';
-
-
         clearReviewForm();
-
         clearReviewMessage();
-
     }
-
-
-    // =========================================
-    // OPEN MODAL
-    // =========================================
 
     function openReviewModal() {
-
         reviewModal.style.display = 'flex';
-
         document.body.style.overflow = 'hidden';
-
     }
-
-
-    // =========================================
-    // OPEN BUTTON
-    // =========================================
 
     openBtn.addEventListener('click', () => {
-
         openReviewModal();
-
     });
-
-
-    // =========================================
-    // CLOSE BUTTON
-    // =========================================
 
     closeBtn.addEventListener('click', () => {
-
         closeReviewModal();
-
     });
-
-
-    // =========================================
-    // CLICK OUTSIDE MODAL
-    // =========================================
 
     reviewModal.addEventListener('click', (e) => {
-
         if (e.target === reviewModal) {
-
             closeReviewModal();
-
         }
-
     });
-
-
-    // =========================================
-    // ESCAPE KEY
-    // =========================================
 
     document.addEventListener('keydown', (e) => {
-
-        if (
-            e.key === 'Escape' &&
-            reviewModal.style.display === 'flex'
-        ) {
-
+        if (e.key === 'Escape' && reviewModal.style.display === 'flex') {
             closeReviewModal();
-
         }
-
     });
 
+    const reviewError = document.querySelector('.review-error');
+    const reviewSuccess = document.querySelector('.review-success');
 
-    // =========================================
-    // CHECK FOR REVIEW MESSAGE
-    // =========================================
-
-    const reviewError =
-        document.querySelector(
-            '.review-error'
-        );
-
-    const reviewSuccess =
-        document.querySelector(
-            '.review-success'
-        );
-
-
-    // =========================================
-    // REOPEN MODAL AFTER SUBMISSION
-    // =========================================
-
-    if (
-        reviewError ||
-        reviewSuccess
-    ) {
-
+    if (reviewError || reviewSuccess) {
         openReviewModal();
-
     }
-
 }
 
 // =========================================
 // THEME TOGGLE (DAY / NIGHT)
 // =========================================
-
 function initThemeToggle() {
-
     const themeToggle = document.getElementById('themeToggle');
 
     if (!themeToggle) return;
 
     const icon = themeToggle.querySelector('i');
 
+    function applyTheme(theme) {
+        const isLight = theme === 'light';
+
+        document.body.classList.toggle('light-mode', isLight);
+
+        if (icon) {
+            icon.classList.toggle('fa-sun', isLight);
+            icon.classList.toggle('fa-moon', !isLight);
+        }
+
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    }
+
     // Load saved theme
     const savedTheme = localStorage.getItem('theme');
 
     if (savedTheme === 'light') {
-        document.body.classList.add('light-mode');
-        icon.classList.replace('fa-moon', 'fa-sun');
+        applyTheme('light');
+    } else {
+        applyTheme('dark');
     }
 
+    // Toggle theme
     themeToggle.addEventListener('click', () => {
+        const isCurrentlyLight =
+            document.body.classList.contains('light-mode');
 
-        document.body.classList.toggle('light-mode');
-
-        const isLight = document.body.classList.contains('light-mode');
-
-        if (isLight) {
-
-            icon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'light');
-
-        } else {
-
-            icon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'dark');
-
-        }
-
+        applyTheme(isCurrentlyLight ? 'dark' : 'light');
     });
-
 }
 
-
-
+// =========================================
+// DOM CONTENT LOADED
+// =========================================
 document.addEventListener('DOMContentLoaded', () => {
-
     renderMixes();
     renderPastEvents();
-
     initMobileMenu();
     initSmoothScroll();
     initStickyHeader();
     initBooking();
-
     initLightbox();
     initVideoModal();
     initReviewModal();
-
     initThemeToggle();
 
     const footerYear = document.querySelector('.footer-copy');
-
     if (footerYear) {
-        footerYear.innerHTML =
-            `© ${new Date().getFullYear()} Congo. Made with <span class="heart">♥</span>`;
+        footerYear.innerHTML = `© ${new Date().getFullYear()} Congo. Made with <span class="heart">♥</span>`;
     }
 
     console.log('DJ Congo website initialized — professional edition');
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
